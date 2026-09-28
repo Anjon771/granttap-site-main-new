@@ -1,0 +1,400 @@
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 18px;
+}
+
+.history-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.history-gallery figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  margin: 0;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--panel);
+}
+
+.history-gallery .watch-captures {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) minmax(260px, 0.8fr);
+  min-height: 300px;
+}
+
+.capture-button {
+  position: relative;
+  width: min(270px, 100%);
+  padding: 0;
+  overflow: hidden;
+  border: 6px solid #303238;
+  border-radius: 34px;
+  background: #000;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.45);
+  cursor: zoom-in;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.capture-button.phone {
+  aspect-ratio: 1320 / 2868;
+}
+
+.capture-button:hover,
+.capture-button:focus-visible {
+  border-color: #676b74;
+  transform: translateY(-3px);
+}
+
+.capture-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+}
+
+.capture-zoom {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(7, 8, 10, 0.82);
+  font-size: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.history-gallery figcaption {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.history-gallery figcaption strong {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--ink);
+  font-size: 20px;
+}
+
+.gallery-phone,
+.gallery-watch,
+.gallery-security {
+  margin: 0;
+  padding: 34px 34px 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--panel);
+}
+
+.security-shot {
+  width: 285px;
+  height: 520px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 7px solid #383a40;
+  border-bottom: 0;
+  border-radius: 46px 46px 0 0;
+  background: #000;
+}
+
+.security-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.gallery-device {
+  width: 285px;
+  height: 520px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 7px solid #383a40;
+  border-radius: 46px;
+  background: #000;
+}
+
+.phone-pair {
+  display: flex;
+  min-height: 520px;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 18px;
+}
+
+.phone-pair .gallery-device {
+  width: min(44%, 225px);
+  height: auto;
+  aspect-ratio: 1206 / 2622;
+  margin: 0;
+}
+
+.phone-pair .gallery-device:last-child {
+  transform: none;
+}
+
+.phone-pair .gallery-device img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.gallery-screen-stack img {
+  object-position: top center;
+}
+
+figcaption {
+  margin: 28px -34px 0;
+  padding: 23px 30px 28px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.52;
+}
+
+figcaption strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.watch-pair {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 16px;
+  width: min(520px, 100%);
+  min-height: 0;
+  padding: 0;
+}
+
+.watch-pair .capture-button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 46px;
+}
+
+.capture-lightbox {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  padding: 34px;
+  overflow: auto;
+  background: rgba(4, 5, 7, 0.94);
+  backdrop-filter: blur(20px);
+}
+
+.lightbox-close {
+  position: fixed;
+  z-index: 2;
+  top: 22px;
+  right: 22px;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid #4d5159;
+  border-radius: 50%;
+  color: #fff;
+  background: #17191d;
+  font: 300 30px/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.lightbox-device {
+  overflow: hidden;
+  border: 7px solid #3b3e45;
+  background: #000;
+  box-shadow: 0 35px 110px rgba(0, 0, 0, 0.72);
+}
+
+.lightbox-device.phone {
+  width: min(410px, 76vw);
+  border-radius: 50px;
+}
+
+.lightbox-device.watch {
+  width: min(520px, 82vw);
+  padding: 12px;
+  border-radius: 68px;
+}
+
+.lightbox-device img {
+  width: 100%;
+  max-height: calc(100dvh - 150px);
+  object-fit: contain;
+}
+
+.capture-lightbox > p {
+  max-width: 620px;
+  margin: 20px 0 0;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.55;
+}
+
+.capture-lightbox > p strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ink);
+}
+
+.availability {
+  padding-block: 0 64px;
+}
+
+.availability-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 105px 1fr auto;
+  align-items: center;
+  gap: 35px;
+  padding: 58px;
+  overflow: hidden;
+  border: 1px solid rgba(244, 106, 59, 0.3);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(244, 106, 59, 0.2), transparent 24rem),
+    #181515;
+}
+
+.availability-card > img {
+  width: 105px;
+  height: 105px;
+  border-radius: 25px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+}
+
+.availability-card h2 {
+  max-width: 700px;
+  margin-bottom: 14px;
+  font-size: clamp(34px, 4vw, 52px);
+}
+
+.availability-card .release-copy {
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+.availability-pill {
+  align-self: start;
+  padding: 10px 14px;
+  border: 1px solid rgba(244, 106, 59, 0.26);
+  border-radius: 999px;
+  color: var(--orange);
+  background: rgba(244, 106, 59, 0.08);
+  font-size: 11px;
+  font-weight: 740;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 30px;
+  padding-block: 38px 48px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-brand strong,
+.footer-brand small {
+  display: block;
+}
+
+.footer-brand strong {
+  font-size: 15px;
+}
+
+.footer-brand small {
+  margin-top: 2px;
+  color: var(--dim);
+  font-size: 11px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+}
+
+footer > p {
+  grid-column: 1 / -1;
+  max-width: 760px;
+  margin: 0;
+  color: #5f6063;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+/* The Mesh, screen by screen: four to a row, each with the one line that says
+   what it is. Smaller frames than the three-up gallery above, because these
+   are read together rather than one at a time. */
+.mesh-gallery-heading {
+  margin-top: 72px;
+}
+
+.mesh-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.mesh-gallery figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  padding: 20px 18px 22px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panel);
+}
+
+.mesh-gallery .capture-button {
+  width: min(210px, 100%);
+}
+
+.mesh-gallery figcaption {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.mesh-gallery figcaption strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--ink);
+  font-size: 17px;
+}
